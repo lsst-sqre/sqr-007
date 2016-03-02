@@ -1,8 +1,8 @@
 ###############################################################
-SQR-007 SQR-007 SQuaRE's Logging, monitoring and metrics system
+SQR-007 SQuaRE's Logging, monitoring and metrics system
 ###############################################################
 
-SQR-007 SQuaRE's Logging, monitoring and metrics system
+SQuaRE's Logging, monitoring and metrics system
 
 View this technote at http://sqr-007.lsst.io or see a preview of the
 current version in `this repo`_

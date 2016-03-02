@@ -11,20 +11,20 @@ serial_number: '007'
 # Serial number of the document. E.g. SQR-001
 # NOTE: this field is *planned* for deprecation
 doc_id: 'SQR-007'
-
+`
 # Title of the document, without the series/serial designation
-doc_title: 'SQR-007 SQuaRE's Logging, monitoring and metrics system'
+doc_title: "SQR-007 SQuaRE's Logging, monitoring and metrics system"
 
 # Author names, ordered as a list. Each author name should be formatted as 'First Last'
 authors:
     - 'J. Matt Peterson'
 
 # Current document version
-last_revised: '2016-02-01'
+last_revised: '2016-03-02'
 
 # Version. Use Semvar, e.g., 1.0, including .dev, as necessary
 # This version string should correspond to the git tag when the document is published on Zenodo
-version: '1.0'
+version: '0.1'
 
 # Digital Object Identifier (DOI). Uncomment if available.
 # Keep this DOI updated as new releases are pushed to Zenodo
