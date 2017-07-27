@@ -13,7 +13,7 @@ serial_number: '007'
 doc_id: 'SQR-007'
 
 # Title of the document, without the series/serial designation
-doc_title: 'SQR-007 SQuaRE's Logging, monitoring and metrics system'
+doc_title: "SQuaRE's Logging, monitoring and metrics system"
 
 # Author names, ordered as a list. Each author name should be formatted as 'First Last'
 authors:
@@ -34,7 +34,7 @@ version: '1.0'
 copyright: '2016, AURA/LSST'
 
 # Description. A short, 1-2 sentence statemement used by document indices.
-description: 'SQR-007 SQuaRE's Logging, monitoring and metrics system'
+description: "SQuaRE's Logging, monitoring and metrics system"
 
 # Abstract, if available
 # abstract: >
