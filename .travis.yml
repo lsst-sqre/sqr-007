@@ -1,8 +1,20 @@
 sudo: false
 language: python
-python:
-      - 3.4
-install: "pip install -r requirements.txt"
-script: "make html"
-notifications:
-      email: false
+matrix:
+  include:
+    - python: "3.5"
+      env: LTD_MASON_BUILD=true
+install:
+  - pip install -r requirements.txt
+  - pip install "ltd-mason>=0.2,<0.3"
+script:
+  - sphinx-build -b html -a -n -d _build/doctree . _build/html
+after_success:
+  - ltd-mason-travis --html-dir _build/html
+env:
+  global:
+    - LTD_MASON_BUILD=false  # disable builds in regular text matrix
+    - LTD_MASON_PRODUCT="sqr-007"
+    # Add AWS and LTD Keeper credentials as encrypted secrets here
+    - secure: "DPNtqw32go7+tC1np4kU1XTdlq2aXkBmkyTXHdSul2K2JXBbs8kPA7qQy2ZBIrbYwaC6pYs2TEEdFVh2FZarfDEmZ3ET6YsOeTPL8J9pSyZ6QiLK8ShkaEuchdJo0MCt3IQGCcJZNN4fyxeOMDaMXhFsAe5pPDd9eiaaP4FPTs0CY8cWg/ogfTofYk9lcMXZrDRkpkV65Omemt5644UV8waWnqzz2GubARz/gfgDHEONo1fpRtzFxZZ+zOPaaz+cfk9FAm0QGhUjiEt6WIh4Re+1ufYmN95+9iOyJijccVQDi6fs21gpqAHZM6OJRAh8O0WTwm4bpfS4p3i5llLHX31Ty+eX+MwUUdZ6GdUlDtqE80rk1hOid8fXZGWjgo3Ll56Q/VdX2sIRYWrlpPpUv/Bozh+wrejZ9o+evDpmbu2FxzHJLpTNXRQZ9ukHQkfs/HelbRqfD0d/lbA40vjTSERgxnSWEeD5PB+GY6GTACEgrc+BWcvQg1C0FM1uIkL9Qmu+/FuSFjs6UBQ33MIoFf2+E/VFKEzjYsoCmrhVhj5pxRZLGV8+60VCU61CKhr1EgLURxWMQn3Ykwy9Cz6FogkNTfHt9vVCw+OzBhOFq936z0ABK9L+GuNXbnejjjj8nANlBASKClD6sRooIlTG/1wEFyUsgsU6l2zRpEWVQ4U="
+    - secure: "XfgREHLwADA4ZWSK+McqPhU+wGbOkRzYebm+fr8FVa0KNNzX5OJ78c7yohHY0Mv9ZJIxAqFQUPQpUa82iB1lKQtNjpH2lk56vxsTdszXjFbVNU8RiDYk2YFi2UODlZgn90ybQOXtnuCSRtD5tErVJnwQLrnUTKmVhNG79maaKKMqCEOJ8z7MRYVVQbe95AaG8kZ7zni6Hu1gtoOV8EAcDCDZnsqVAYysX2H6pDfXPoFxHbFUxrZhGZ9d2pdfibyhsChjhnRx7RzKdK9qZ5/QRXZggv5eAARvXx23bk5fq5gscGMVChBqt/FxKO7xDPKWzfBclsizQ/KnAhBBIlEH/3IzoQk0oPwEY99iow9hkkUQKYO4oC9VoZnpioXezUOvZM6wICIzgGhh6n97YT6PU1H5O6rsD2F/SBnxX4vqxroei9PBxNTQD9rPlbxEJ9/lFd1KrjAsuJMJKG17skIVIQS5cCf1uiT/TBmjfIk2R8FGdJffbJ60xmsKQoOShxyxcygnz5AhG8f7wJBKAlWjkwqwZL6MI8aBe3wQJF6/5JJvIEya8D3JK2Ix/MT3bSzGzVoTV4tfmAPY+ngbcvkUO7dDVHG4Qdl71Y7h0QtP439T+xzHVbEhg0//FYepSmgYam1tomsnDGdNn0fpUr8rV14+7NWeOBikab25uPSpEG4="
